@@ -1,0 +1,16 @@
+<div class="col-lg-12">
+    <button type="button" class="btn btn-primary" (click)="showGitRepo('tomas1207')">Pedir</button>
+    <ul *ngIf="gitrepos">
+        <li *ngFor="let repos of gitrepos">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>{{repos.name}}</p>
+                </div>
+                <div class="col-md-6">
+                    <!-- Ver o que se passa -->
+                    <a [ngClass]="{'arroz': repos.name == bomba}" [href]="repos.html_url">link</a>
+                </div>
+            </div>
+        </li>
+    </ul>        
+</div>

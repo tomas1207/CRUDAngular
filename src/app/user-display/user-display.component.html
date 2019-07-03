@@ -1,0 +1,12 @@
+<div class="col-md-12">
+    <button type="button" class="btn btn-primary" (click)="cenas()">Pedir</button>
+    <ul *ngIf="user">
+        <li *ngFor="let users of user.data">
+            <img [src]="users.avatar">
+            
+            <div class="col-md-12">
+                <p>{{users.first_name}}</p>
+            </div>
+        </li>
+    </ul>        
+</div>
