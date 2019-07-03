@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { UserDisplayComponent } from './user-display/user-display.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'user', component: UserDisplayComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
