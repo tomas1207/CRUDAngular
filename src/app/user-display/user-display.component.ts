@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user-display',
@@ -8,16 +9,24 @@ import { HttpClient } from "@angular/common/http";
 })
 export class UserDisplayComponent implements OnInit {
   user:Object;
+  links = environment.urls;
   constructor(private http:HttpClient) { }
-  getUser(){
-    return this.http.get('https://reqres.in/api/users')
+  postUser(){
+    return this.http.post(this.links.baseURL + this.links.create,{  "name": "morpheus",
+    "job": "leader"})
+  }
+  getuser(){
+    return this.http.get(this.links.baseURL + this.links.create);
   }
   ngOnInit() {
   }
   public cenas(){
-    this.getUser().subscribe(data =>{
-      this.user = data;
-      console.log(this.user)
+    this.postUser().subscribe(data =>{
+      console.log(data);
     });
+    this.getuser().subscribe(data=>{
+      this.user = data;
+      console.log(data);
+    })
   }
 }

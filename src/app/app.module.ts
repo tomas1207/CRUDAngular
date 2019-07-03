@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserDisplayComponent } from './user-display/user-display.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { GitreposComponent } from './gitrepos/gitrepos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserDisplayComponent,
-    NavbarComponent
+    NavbarComponent,
+    GitreposComponent
   ],
   imports: [
     BrowserModule,
@@ -19,6 +21,6 @@ import { NavbarComponent } from './navbar/navbar.component';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
