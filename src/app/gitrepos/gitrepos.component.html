@@ -8,7 +8,9 @@
                 </div>
                 <div class="col-md-6">
                     <!-- Ver o que se passa -->
-                    <a class="arroz" [href]="repos.html_url">link</a>
+                    <a  [ngClass]="{
+                        'arroz': repos.name == 'Bomba'
+                      }" [href]="repos.html_url">link</a>
                 </div>
             </div>
         </li>
