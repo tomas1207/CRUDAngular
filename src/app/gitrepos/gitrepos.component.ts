@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import sampleData from './../../settings/config.json';
 
 @Component({
   selector: 'app-gitrepos',
@@ -8,7 +9,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class GitreposComponent implements OnInit {
   gitrepos:object;
- 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -16,7 +16,7 @@ export class GitreposComponent implements OnInit {
 
   getGitRepos(username: string){
     const headers = new HttpHeaders();
-    headers.set("Authorization","Basic dG9tYXMxMjA3OlRvbWFzZDEy");
+    headers.set("Authorization",sampleData.git);  
     return this.http.get("https://api.github.com/users/" + username + "/repos", {headers});
   }
 
