@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { UserDisplayComponent } from './user-display/user-display.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { GitreposComponent } from './gitrepos/gitrepos.component';
+import { TempoComponent } from './tempo/tempo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserDisplayComponent,
     NavbarComponent,
-    GitreposComponent
+    GitreposComponent,
+    TempoComponent
   ],
   imports: [
     BrowserModule,

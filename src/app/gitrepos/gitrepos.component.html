@@ -3,11 +3,10 @@
     <ul *ngIf="gitrepos">
         <li *ngFor="let repos of gitrepos">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-10">
                     <p>{{repos.name}}</p>
                 </div>
-                <div class="col-md-6">
-                    <!-- Ver o que se passa -->
+                <div class="col-md-2">
                     <a  [ngClass]="{
                         'arroz': repos.name == 'Bomba'
                       }" [href]="repos.html_url">link</a>

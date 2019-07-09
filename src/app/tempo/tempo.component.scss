@@ -2,24 +2,29 @@ ul{
     list-style-type: none;
     margin: 0;padding: 0;
     li {
-        background: rgb(212, 0, 255);
+        background: rgb(231, 233, 212);
         padding: 2em;
         border-radius: 4px;
         margin-bottom: 7px;
         display: grid;
         grid-template-columns: auto;
-        p{
-            color: rgb(1, 231, 78);
-            
-        }
+       
         a{
             color: red;
             text-decoration: none;
+        }
+        div{
+            border-radius: 4px;
         }
    
     }
    
 }
-.arroz{
-    background-color: black;
+p{
+    color: black;
+    text-align: center;
+}
+.rain{
+    background-color: blue;
+    opacity: 0%;
 }

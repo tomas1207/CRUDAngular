@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-3">
+        <button type="button" class="btn btn-primary" (click)="getTempoFromIPMA('1110600')">Pedir Tempo</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 " *ngIf='tempo' >
+        <ul>
+            <li *ngFor="let tempofor of tempo.data">
+                <div class="row" [ngStyle]="checkRain(tempofor.precipitaProb)">
+                    <div class="col-xs-6">
+                        <p>{{tempofor.precipitaProb}}</p>
+                    </div>
+                </div>
+
+                <div class="row" [ngStyle]="checkSun(tempofor.tMax)">
+                    <div class="col-xs-6">
+                        <p>{{tempofor.tMax}}</p> 
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+</div>
