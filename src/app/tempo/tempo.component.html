@@ -1,25 +1,39 @@
-<div class="row">
-    <div class="col-3">
-        <button type="button" class="btn btn-primary" (click)="getTempoFromIPMA('1110600')">Pedir Tempo</button>
-    </div>
+<div *ngIf="localidades" [hidden]="tempo">
+  <ul>
+    <li *ngFor="let local of localidades.data"><!--Fazer o Model-->
+        <div class="col-12" (click)="getTempoFromIPMA(local.globalIdLocal)">
+            <p>{{local.local}}</p>
+        </div>
+    </li>
+  </ul>
 </div>
-<div class="row">
-    <div class="col-12 " *ngIf='tempo' >
-        <ul>
-            <li *ngFor="let tempofor of tempo.data">
-                <div class="row" [ngStyle]="checkRain(tempofor.precipitaProb)">
-                    <div class="col-xs-6">
-                        <p>{{tempofor.precipitaProb}}</p>
-                    </div>
-                </div>
 
-                <div class="row" [ngStyle]="checkSun(tempofor.tMax)">
-                    <div class="col-xs-6">
-                        <p>{{tempofor.tMax}}</p> 
-                    </div>
+<div class="row">
+    <div class="col-12 " *ngIf='tempo'>
+      <ul>
+        <li *ngFor="let tempofor of tempo.data">
+            <div class="row">
+                <div class="col-lg-12">
+                  <p>Dia:</p>
+                  <p>{{tempofor.forecastDate}}</p>
                 </div>
-            </li>
-        </ul>
+            </div>
+          <div class="row" [ngStyle]="checkRain(tempofor.precipitaProb)">
+            <div class="col-12">
+              <p>{{tempofor.precipitaProb}}</p>
+            </div>
+          </div>
+          <div class="row" [ngStyle]="checkSun(tempofor.tMax)">
+            <div class="col-12">
+              <p>{{tempofor.tMax}}</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="row">
+          <div class="col-12">
+            <button type="button" (click)="back()" class="btn btn-lg btn-block btn-primary">Back</button>
+          </div>
+        </div>
     </div>
-    
 </div>

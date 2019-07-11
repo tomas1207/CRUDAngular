@@ -7,19 +7,34 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./tempo.component.scss']
 })
 export class TempoComponent implements OnInit {
-  tempo:Object;
+  tempo:any;
+  localidades:any;
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
+    this.getLocation();
   }
 
   getTempoFromIPMA(localidade : Number){
-    let url = "http://api.ipma.pt/open-data/forecast/meteorology/cities/daily/" + localidade.toString() + ".json";
-    this.http.get(url).subscribe(data=>{
+    const url = "http://api.ipma.pt/open-data/forecast/meteorology/cities/daily/" + localidade.toString() + ".json";
+    this.http.get(url).subscribe(data => {
       console.log(data);
       this.tempo = data;
     });
     return this.tempo;
+  }
+  back(){
+    this.localidades = null;
+    this.tempo = null;
+    this.getLocation();
+  }
+
+  getLocation(){
+    this.http.get("http://api.ipma.pt/open-data/distrits-islands.json").subscribe(rsp=>{
+      console.log(rsp);
+      this.localidades = rsp;
+    });
+    return this.localidades;
   }
 
   checkRain(rain){
@@ -27,15 +42,15 @@ export class TempoComponent implements OnInit {
     let css = {
       "background": "rgba(0,0,255,"+ cenas +")"
     }
-    return css; 
+    return css;
   }
   checkSun(sun){
     let cenas = Number(sun) / 150
-    
+
     let css = {
       "background": "rgba(255,0,0,"+ cenas +")"
     }
-    return css; 
+    return css;
   }
-  
+
 }

@@ -8,6 +8,7 @@ import { UserDisplayComponent } from './user-display/user-display.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { GitreposComponent } from './gitrepos/gitrepos.component';
 import { TempoComponent } from './tempo/tempo.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
